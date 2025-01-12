@@ -84,26 +84,26 @@
   </div>
 </div>
 
-<!-- Vue App Section Below the Footer -->
+<!-- Vue App Section for "PinkBG" -->
 <div id="app">
   {{ message }} <br>
   {{ 'Random number: ' + Math.ceil(Math.random() * 6) }} <br>
   <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.</div>
+</div>
 
-  <div id="app2">
+<!-- Vue App Section for "Many Foods" -->
+<div id="app2">
   <div>
     <figure v-for="x in manyFoods">
-      <img v-bind:src="x.url">
+      <img v-bind:src="x.url" alt="Food">
       <figcaption>{{ x.name }}</figcaption>
     </figure>
   </div>
-
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/images.js"></script>
-
 
 </body>
 </html>
