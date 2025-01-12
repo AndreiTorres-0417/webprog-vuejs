@@ -10,13 +10,6 @@
   <link rel="stylesheet" href="css/bind.css">
   <link rel="stylesheet" href="css/images.css">
   <link rel="stylesheet" href="css/shopping.css">
-  <style>
-    .picture-gallery img {
-      margin: 5px;
-      width: 150px;
-      height: auto;
-    }
-  </style>
 </head>
 <body>
 
@@ -100,8 +93,10 @@
       <figcaption>{{ x.name }}</figcaption>
     </figure>
   </div>
+</div>
 
-  <div id="app3">
+<!-- Vue App Section for Shopping List -->
+<div id="app3">
   <form v-on:submit.prevent="addItem">
     <p>
       What do you need? <br>
@@ -131,7 +126,7 @@
         v-bind:class="{ impClass: item.important }"
         v-on:click="item.found=!item.found"
         v-show="!item.found">
-          {{ item.name }}, {{ item.number}}
+          {{ item.name }}, {{ item.number }}
       </li>
     </ul>
     <ul id="ulFound">
@@ -140,11 +135,10 @@
         v-bind:class="{ impClass: item.important }"
         v-on:click="item.found=!item.found"
         v-show="item.found">
-          {{ item.name }}, {{ item.number}}
+          {{ item.name }}, {{ item.number }}
       </li>
     </ul>
   </div>
-</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
