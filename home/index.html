@@ -3,39 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue and CSS Grid Layout</title>
-  <!-- Link to external CSS files -->
-  <link rel="stylesheet" href="css/flexboxgrid.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bind.css">
+  <title>Vue with CSS Grid Layout</title>
+  <!-- Styles for Grid Layout -->
+  <style>
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "menu content"
+        "footer footer";
+      grid-template-columns: 1fr 3fr;
+      gap: 5px;
+      background-color: #2196F3;
+      padding: 5px;
+    }
+    .container > div {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+    }
+    .container > div.header {
+      grid-area: header;
+      text-align: center;
+    }
+    .container > div.menu {
+      grid-area: menu;
+    }
+    .container > div.content {
+      grid-area: content;
+    }
+    .container > div.footer {
+      grid-area: footer;
+    }
+    /* Style for Vue-bound class */
+    .pinkBG {
+      background-color: lightpink;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>CSS Grid Layout and Vue Example</h1>
-    </div>
-    <div class="menu">
-      <p>Menu items go here.</p>
-    </div>
-    <div class="content" id="app">
-      <!-- Vue dynamically updates this content -->
-      <div style="background-color: lightgreen; padding: 10px;">
-        {{ message }} <br>
-        {{ 'Random number: ' + Math.ceil(Math.random() * 6) }}
-        <div v-bind:class="vueClass" style="margin-top: 10px;">
-          This element is bound to the "pinkBG" class.
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <p>Footer content goes here.</p>
+
+<h1>Vue and CSS Grid Layout Example</h1>
+<p>The Grid Layout Module offers a grid-based layout system, with rows and columns.</p>
+
+<!-- Grid Layout Container -->
+<div class="container">
+  <!-- Header Section -->
+  <div class="header">
+    <h2>My Header</h2>
+  </div>
+  
+  <!-- Menu Section -->
+  <div class="menu">
+    <a href="#">Link 1</a><br>
+    <a href="#">Link 2</a><br>
+    <a href="#">Link 3</a>
+  </div>
+  
+  <!-- Content Section with Vue.js -->
+  <div class="content" id="app">
+    <h3>Dynamic Content</h3>
+    <div v-bind:class="vueClass">
+      This element is dynamically styled with Vue.js!
     </div>
   </div>
+  
+  <!-- Footer Section -->
+  <div class="footer">
+    <h4>Footer Content</h4>
+  </div>
+</div>
 
-  <!-- Include Vue.js -->
-  <script src="https://unpkg.com/vue@3"></script>
+<!-- Include Vue.js Library -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- Vue Application Script -->
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        vueClass: "pinkBG" // Dynamic class binding
+      };
+    }
+  });
+  app.mount('#app'); // Mount Vue app to the content div
+</script>
 
-  <!-- Link to your custom JavaScript file -->
-  <script src="js/vue.js"></script>
 </body>
 </html>
