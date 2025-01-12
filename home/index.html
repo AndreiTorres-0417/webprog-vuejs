@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue Flexbox Example</title>
-  <!-- Link the external CSS files -->
-  <link rel="stylesheet" href="css/flexbox.css">
+  <title>Vue and CSS Grid Layout</title>
+  <!-- Link to external CSS files -->
+  <link rel="stylesheet" href="css/flexboxgrid.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bind.css">
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>Vue and Grid Layout Example</h1>
+      <h1>CSS Grid Layout and Vue Example</h1>
     </div>
     <div class="menu">
       <p>Menu items go here.</p>
     </div>
     <div class="content" id="app">
-      <!-- Vue.js will dynamically render this -->
-      {{ message }} <br>
-      {{ 'Random number: ' + Math.ceil(Math.random() * 6) }}
-      <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.</div>
+      <!-- Vue dynamically updates this content -->
+      <div style="background-color: lightgreen; padding: 10px;">
+        {{ message }} <br>
+        {{ 'Random number: ' + Math.ceil(Math.random() * 6) }}
+        <div v-bind:class="vueClass" style="margin-top: 10px;">
+          This element is bound to the "pinkBG" class.
+        </div>
+      </div>
     </div>
     <div class="footer">
       <p>Footer content goes here.</p>
@@ -31,7 +35,7 @@
   <!-- Include Vue.js -->
   <script src="https://unpkg.com/vue@3"></script>
 
-  <!-- Link your custom Vue script -->
+  <!-- Link to your custom JavaScript file -->
   <script src="js/vue.js"></script>
 </body>
 </html>
