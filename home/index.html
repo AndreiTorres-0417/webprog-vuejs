@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/flexboxgrid.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bind.css">
+  <link rel="stylesheet" href="css/images.css">
   <style>
     .picture-gallery img {
       margin: 5px;
@@ -88,20 +89,21 @@
   {{ message }} <br>
   {{ 'Random number: ' + Math.ceil(Math.random() * 6) }} <br>
   <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.</div>
+
+  <div id="app2">
+  <div>
+    <figure v-for="x in manyFoods">
+      <img v-bind:src="x.url">
+      <figcaption>{{ x.name }}</figcaption>
+    </figure>
+  </div>
+
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
-  const app = Vue.createApp({
-    data() {
-      return {
-        message: "Hello from Vue!",
-        vueClass: "pinkBG"
-      };
-    }
-  });
-  app.mount('#app');
-</script>
+<script src="js/vue.js"></script>
+  <script src="js/images.js"></script>
+
 
 </body>
 </html>
